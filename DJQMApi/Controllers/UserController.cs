@@ -31,7 +31,7 @@ namespace DJQMApi.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("GetUserById:{0}", ex.Message);
+                _logger.LogError("SaveUser:{0}", ex.Message);
                 ihares = BadRequest(ex);
             }
             return await Task.FromResult(ihares);
