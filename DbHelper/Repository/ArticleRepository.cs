@@ -23,7 +23,7 @@ namespace DbHelper.Repository
             using (var connection = _dapperFactory.GetConnection())
             {
                 connection.Open();
-                string strSql = " insert into djqm.Article(articleId,title,content,userCode) values(@articleId,@title,@content,@userCode) ";
+                string strSql = " insert into djqm.Article(articleId,title,desc,recommendFlag,content,userCode) values(@articleId,@title,@desc,@recommendFlag,@content,@userCode) ";
                 int iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 return new ReturnResult()
                 {
@@ -37,7 +37,7 @@ namespace DbHelper.Repository
             using (var connection = _dapperFactory.GetConnection())
             {
                 connection.Open();
-                string strSql = " select articleId,price,title,author,viewTimes,createTime from djqm.Article ";
+                string strSql = " select articleId,price,title,desc,recommendFlag,author,viewTimes,createTime from djqm.Article ";
                 return await connection.QueryAsync<ArticleModel>(strSql, new { }).ConfigureAwait(false);
             }
         }

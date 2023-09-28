@@ -1947,23 +1947,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\F6116148\\.nuget\\packages\\": {},
+    "C:\\Users\\liuba\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\MoYu\\DJQMApi\\DbHelper\\DbHelper.csproj",
+      "projectUniqueName": "D:\\项目\\djqm\\DJQMApi\\DbHelper\\DbHelper.csproj",
       "projectName": "DbHelper",
-      "projectPath": "E:\\Study\\MoYu\\DJQMApi\\DbHelper\\DbHelper.csproj",
-      "packagesPath": "C:\\Users\\F6116148\\.nuget\\packages\\",
-      "outputPath": "E:\\Study\\MoYu\\DJQMApi\\DbHelper\\obj\\",
+      "projectPath": "D:\\项目\\djqm\\DJQMApi\\DbHelper\\DbHelper.csproj",
+      "packagesPath": "C:\\Users\\liuba\\.nuget\\packages\\",
+      "outputPath": "D:\\项目\\djqm\\DJQMApi\\DbHelper\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\F6116148\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\liuba\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2020,7 +2020,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

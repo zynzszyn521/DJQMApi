@@ -11,6 +11,8 @@ namespace DbHelper.Model
         public string? videoId { get; set; }
         public string? price { get; set; }
         public string? title { get; set; }
+        public string? desc { get; set; }
+        public int? recommendFlag { get; set; }
         public string? videoUrl { get; set; }
         public string? author { get; set; }
         public int? viewTimes { get; set; }
