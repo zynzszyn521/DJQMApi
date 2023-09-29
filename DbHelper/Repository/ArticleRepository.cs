@@ -22,13 +22,15 @@ namespace DbHelper.Repository
         {
             using (var connection = _dapperFactory.GetConnection())
             {
+                string strGuid = Guid.NewGuid().ToString();
+                model.articleId = strGuid;
                 connection.Open();
-                string strSql = " insert into djqm.Article(articleId,title,desc,recommendFlag,content,userCode) values(@articleId,@title,@desc,@recommendFlag,@content,@userCode) ";
+                string strSql = " insert into djqm.Article(articleId,title,contentDesc,recommendFlag,content,userCode) values(@articleId,@title,@contentDesc,@recommendFlag,@content,@userCode) ";
                 int iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 return new ReturnResult()
                 {
                     successed = true,
-                    msg = "添加成功"
+                    msg = strGuid
                 };
             }
         }
@@ -37,7 +39,7 @@ namespace DbHelper.Repository
             using (var connection = _dapperFactory.GetConnection())
             {
                 connection.Open();
-                string strSql = " select articleId,price,title,desc,recommendFlag,author,viewTimes,createTime from djqm.Article ";
+                string strSql = " select articleId,price,title,contentDesc,picUrl,recommendFlag,author,viewTimes,createTime from djqm.Article order by createTime desc ";
                 return await connection.QueryAsync<ArticleModel>(strSql, new { }).ConfigureAwait(false);
             }
         }
@@ -48,6 +50,37 @@ namespace DbHelper.Repository
                 connection.Open();
                 string strSql = " select * from djqm.Article where articleId=@articleId ";
                 return await connection.QueryAsync<ArticleModel>(strSql, new { articleId = articleId }).ConfigureAwait(false);
+            }
+        }
+        public async Task<ReturnResult> SaveArticleFilePath(string articleId, string fileType, string fileUrl)
+        {
+            using (var connection = _dapperFactory.GetConnection())
+            {
+                string strGuid = Guid.NewGuid().ToString();
+                connection.Open();
+                string strSql = string.Empty;
+                if (fileType == "Image")
+                {
+                    strSql = " update djqm.Article set picUrl = @fileUrl where articleId=@articleId ";
+                }
+                else
+                {
+                    return new ReturnResult()
+                    {
+                        successed = false,
+                        msg = "Not Surpport " + fileType
+                    };
+                }
+                int iReturn = await connection.ExecuteAsync(strSql, new
+                {
+                    articleId = articleId,
+                    fileUrl = fileUrl
+                }).ConfigureAwait(false);
+                return new ReturnResult()
+                {
+                    successed = true,
+                    msg = strGuid
+                };
             }
         }
     }

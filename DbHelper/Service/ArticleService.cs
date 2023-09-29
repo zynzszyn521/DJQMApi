@@ -29,5 +29,9 @@ namespace DbHelper.Service
         {
             return _articleRepository.GetArticleDetail(userCode, articleId);
         }
+        public Task<ReturnResult> SaveArticleFilePath(string videoId, string fileType, string fileUrl)
+        {
+            return _articleRepository.SaveArticleFilePath(videoId, fileType, fileUrl);
+        }
     }
 }

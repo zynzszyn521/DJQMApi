@@ -11,11 +11,22 @@ namespace DbHelper.Model
         public string? videoId { get; set; }
         public string? price { get; set; }
         public string? title { get; set; }
-        public string? desc { get; set; }
+        public string? contentDesc { get; set; }
+        public string? picUrl { get; set; }
         public int? recommendFlag { get; set; }
-        public string? videoUrl { get; set; }
         public string? author { get; set; }
         public int? viewTimes { get; set; }
         public DateTime createTime { get; set; }
+    }
+    public class VideoDetailModel
+    {
+        public string? videoDetaillId { get; set; }
+        public string? videoDetailTitle { get; set; }
+        public string? videoUrl { get; set; }
+        public int? viewTimes { get; set; }
+        public DateTime createTime { get; set; }
+        public string? videoId { get; set; }
+        public int? tryFlag { get; set; }
+        public int? orderNo { get; set; }
     }
 }

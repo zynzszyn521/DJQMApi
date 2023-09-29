@@ -10,20 +10,20 @@ namespace DbHelper.Service
 {
     public class OrderService
     {
-        private readonly OrderRepository _articleRepository;
+        private readonly OrderRepository _orderRepository;
 
-        public OrderService(OrderRepository articleRepository)
+        public OrderService(OrderRepository orderRepository)
         {
-            _articleRepository = articleRepository;
+            _orderRepository = orderRepository;
         }
 
         public Task<ReturnResult> SaveOrder(OrderModel model)
         {
-            return _articleRepository.SaveOrder(model);
+            return _orderRepository.SaveOrder(model);
         }
         public Task<dynamic> GetOrderList(string userCode)
         {
-            return _articleRepository.GetOrderList(userCode);
+            return _orderRepository.GetOrderList(userCode);
         }
     }
 }

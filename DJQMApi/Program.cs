@@ -8,6 +8,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<DapperFactory>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<VideoService>();
+builder.Services.AddScoped<VideoRepository>();
+builder.Services.AddScoped<ArticleService>();
+builder.Services.AddScoped<ArticleRepository>();
+builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<OrderRepository>();
+
+builder.Services.AddControllers(options =>
+{
+    //ÔÊÔS…¢”µžé¿Õ
+    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

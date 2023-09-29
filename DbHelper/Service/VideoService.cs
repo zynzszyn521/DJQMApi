@@ -10,24 +10,36 @@ namespace DbHelper.Service
 {
     public class VideoService
     {
-        private readonly VideoRepository _articleRepository;
+        private readonly VideoRepository _videoRepository;
 
-        public VideoService(VideoRepository articleRepository)
+        public VideoService(VideoRepository videoRepository)
         {
-            _articleRepository = articleRepository;
+            _videoRepository = videoRepository;
         }
 
         public Task<ReturnResult> SaveVideo(VideoModel model)
         {
-            return _articleRepository.SaveVideo(model);
+            return _videoRepository.SaveVideo(model);
+        }
+        public Task<ReturnResult> SaveVideoDetail(VideoDetailModel model)
+        {
+            return _videoRepository.SaveVideoDetail(model);
         }
         public Task<dynamic> GetVideoList(string userCode)
         {
-            return _articleRepository.GetVideoList(userCode);
+            return _videoRepository.GetVideoList(userCode);
         }
-        public Task<dynamic> GetVideoDetail(string userCode,string articleId)
+        public Task<dynamic> GetVideoDetailList(string userCode, string videoId)
         {
-            return _articleRepository.GetVideoDetail(userCode, articleId);
+            return _videoRepository.GetVideoDetailList(userCode, videoId);
+        }
+        public Task<dynamic> GetVideoDetailUrl(string userCode, string videoId)
+        {
+            return _videoRepository.GetVideoDetailUrl(userCode, videoId);
+        }
+        public Task<ReturnResult> SaveVideoFilePath(string videoId, string fileType, string fileUrl)
+        {
+            return _videoRepository.SaveVideoFilePath(videoId, fileType, fileUrl);
         }
     }
 }

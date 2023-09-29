@@ -11,7 +11,8 @@ namespace DbHelper.Model
         public string? articleId { get; set; }
         public string? price { get; set; }
         public string? title { get; set; }
-        public string? desc { get; set; }
+        public string? contentDesc { get; set; }
+        public string? picUrl { get; set; }
         public int? recommendFlag { get; set; }
         public string? content { get; set; }
         public string? author { get; set; }
