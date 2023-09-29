@@ -109,13 +109,13 @@ namespace DJQMApi.Controllers
         //获取视频子项地址
         [Route("GetVideoDetailUrl")]
         [HttpGet]
-        public async Task<IActionResult> GetVideoDetailUrl(string userCode, string videoId)
+        public async Task<IActionResult> GetVideoDetailUrl(string userCode, string videoDetailId)
         {
             IActionResult ihares;
             ReturnResult returnResult = new ReturnResult();
             try
             {
-                var list = await _videoService.GetVideoDetailUrl(userCode, videoId);
+                var list = await _videoService.GetVideoDetailUrl(userCode, videoDetailId);
                 returnResult = new ReturnResult()
                 {
                     successed = true,

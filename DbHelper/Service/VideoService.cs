@@ -33,9 +33,9 @@ namespace DbHelper.Service
         {
             return _videoRepository.GetVideoDetailList(userCode, videoId);
         }
-        public Task<dynamic> GetVideoDetailUrl(string userCode, string videoId)
+        public Task<dynamic> GetVideoDetailUrl(string userCode, string videoDetailId)
         {
-            return _videoRepository.GetVideoDetailUrl(userCode, videoId);
+            return _videoRepository.GetVideoDetailUrl(userCode, videoDetailId);
         }
         public Task<ReturnResult> SaveVideoFilePath(string videoId, string fileType, string fileUrl)
         {

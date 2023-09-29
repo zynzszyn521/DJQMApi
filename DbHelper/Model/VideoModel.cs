@@ -20,7 +20,7 @@ namespace DbHelper.Model
     }
     public class VideoDetailModel
     {
-        public string? videoDetaillId { get; set; }
+        public string? videoDetailId { get; set; }
         public string? videoDetailTitle { get; set; }
         public string? videoUrl { get; set; }
         public int? viewTimes { get; set; }
