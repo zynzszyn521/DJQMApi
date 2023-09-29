@@ -370,7 +370,7 @@ FodyWeavers.xsd
 *.cache
 *.user
 /DJQMApi/.config
-/DJQMApi/obj
+/DJQMApi/obj/*
 /DJQMApi/bin/Debug
 /DJQMApi/bin/Release
 /DJQMApi/obj/Debug/
