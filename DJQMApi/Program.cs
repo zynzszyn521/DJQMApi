@@ -1,6 +1,7 @@
 using DbHelper.DbCon;
 using DbHelper.Repository;
 using DbHelper.Service;
+using zyqmapi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<ILoggerProvider>(new MyLoggerProvider(AppContext.BaseDirectory));
 
 var app = builder.Build();
 
