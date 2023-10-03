@@ -62,13 +62,13 @@ namespace DJQMApi.Controllers
         }
         [Route("GetArticleDetail")]
         [HttpGet]
-        public async Task<IActionResult> GetArticleDetail(string userCode, string videoId)
+        public async Task<IActionResult> GetArticleDetail(string userCode, string articleId)
         {
             IActionResult ihares;
             ReturnResult returnResult = new ReturnResult();
             try
             {
-                var list = await _articleService.GetArticleDetail(userCode, videoId);
+                var list = await _articleService.GetArticleDetail(userCode, articleId);
                 returnResult = new ReturnResult()
                 {
                     successed = true,
