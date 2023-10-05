@@ -12,7 +12,10 @@ namespace DbHelper.Model
         public string? userName { get; set; }
         public string? email { get; set; }
         public string? password { get; set; }
-        public string? tel { get; set; }
-        public DateTime createTime { get; set; }
+        public string? phoneNumber { get; set; }
+        public DateTime? createTime { get; set; }
+        public DateTime? lastTime { get; set; }
+        public int? payFlag { get; set; }
+        public DateTime? expirationTime { get; set; }
     }
 }

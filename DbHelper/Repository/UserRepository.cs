@@ -22,13 +22,36 @@ namespace DbHelper.Repository
         {
             using (var connection = _dapperFactory.GetConnection())
             {
+                string strSql = string.Empty;
+                int iReturn = 0;
                 connection.Open();
-                string strSql = " insert into djqm.User(userCode,userName,email,password,tel) values(@userCode,@userName,@email,@password,@tel) ";
-                int iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
+                strSql = " update djqm.User set lastTime=CURRENT_TIMESTAMP where userCode=@userCode ";
+                iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
+                if (iReturn == 0)
+                {
+                    strSql = " insert into djqm.User(userCode,userName,email,password,phoneNumber) values(@userCode,@userName,@email,@password,@phoneNumber) ";
+                    iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
+                }
                 return new ReturnResult()
                 {
                     successed = true,
                     msg = "添加成功"
+                };
+            }
+        }
+        public async Task<ReturnResult> UpdatePayUser(UserModel model)
+        {
+            using (var connection = _dapperFactory.GetConnection())
+            {
+                string strSql = string.Empty;
+                int iReturn = 0;
+                connection.Open();
+                strSql = " update djqm.User set payFlag=@payFlag,expirationTime=@expirationTime where userCode=@userCode ";
+                iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
+                return new ReturnResult()
+                {
+                    successed = true,
+                    msg = ""
                 };
             }
         }

@@ -36,6 +36,24 @@ namespace DJQMApi.Controllers
             }
             return await Task.FromResult(ihares);
         }
+        [Route("UpdatePayUser")]
+        [HttpPost]
+        public async Task<IActionResult> UpdatePayUser(UserModel model)
+        {
+            IActionResult ihares;
+            ReturnResult returnResult = new ReturnResult();
+            try
+            {
+                returnResult = await _userService.UpdatePayUser(model);
+                ihares = Ok(returnResult);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("UpdatePayUser:{0}", ex.Message);
+                ihares = BadRequest(ex);
+            }
+            return await Task.FromResult(ihares);
+        }
         [Route("GetUserInfo")]
         [HttpGet]
         public async Task<IActionResult> GetUserInfo(string userCode)
