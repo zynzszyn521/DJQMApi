@@ -23,7 +23,7 @@ namespace DbHelper.Repository
             using (var connection = _dapperFactory.GetConnection())
             {
                 connection.Open();
-                string strSql = " insert into djqm.UserSMS(phoneNumber,smsCode) values(@phoneNumber,@smsCode) ";
+                string strSql = " insert into djqm.UserSMS(phoneNumber,smsCode,devManufacturer,devModel,devId,appVersion) values(@phoneNumber,@smsCode,@devManufacturer,@devModel,@devId,@appVersion) ";
                 int iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 return new ReturnResult()
                 {

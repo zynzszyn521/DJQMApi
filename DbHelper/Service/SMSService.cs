@@ -11,17 +11,26 @@ namespace DbHelper.Service
     public class SMSService
     {
         private readonly SMSRepository _smsRepository;
+        private readonly UserRepository _userRepository;
 
-        public SMSService(SMSRepository smsRepository)
+        public SMSService(SMSRepository smsRepository, UserRepository userRepository)
         {
             _smsRepository = smsRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<ReturnResult> SendSMS(SMSModel model)
         {
             Random rm = new Random();
             model.smsCode = Convert.ToString(rm.Next(1000, 9999));
-            //先保存到数据库
+            //如果用户没有在基本表则插入
+            UserModel userModel = new UserModel()
+            {
+                userCode = model.phoneNumber,
+                phoneNumber = model.phoneNumber,
+            };
+            await _userRepository.SaveUser(userModel);
+            //保存短信记录
             ReturnResult saveResult = await _smsRepository.SaveSMSLog(model);
             if (saveResult.successed)
             {
@@ -31,8 +40,8 @@ namespace DbHelper.Service
                     return new ReturnResult() { successed = true, msg = model.smsCode };
                 }
                 else
-                { 
-                     return new ReturnResult() { successed = false, msg = strSendResult.Replace("FALSE^","") };
+                {
+                    return new ReturnResult() { successed = false, msg = strSendResult.Replace("FALSE^", "") };
                 }
             }
             else

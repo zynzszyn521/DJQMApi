@@ -10,5 +10,9 @@ namespace DbHelper.Model
     {
         public string? phoneNumber { get; set; }
         public string? smsCode { get; set; }
+        public string? devManufacturer { get; set; }
+        public string? devModel { get; set; }
+        public string? devId { get; set; }
+        public string? appVersion { get; set; }
     }
 }
