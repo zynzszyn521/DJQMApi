@@ -73,7 +73,7 @@ namespace DbHelper.Repository
             using (var connection = _dapperFactory.GetConnection())
             {
                 connection.Open();
-                string strSql = " select * from djqm.VideoDetail where videoDetailId=@videoDetailId ";
+                string strSql = " select * from djqm.VideoDetail where videoDetailId=@videoDetailId order by orderNo ";
                 return await connection.QueryAsync<VideoDetailModel>(strSql, new { videoDetailId = videoDetailId }).ConfigureAwait(false);
             }
         }
