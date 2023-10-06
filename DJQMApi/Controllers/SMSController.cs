@@ -12,10 +12,10 @@ namespace DJQMApi.Controllers
         private readonly ILogger<SMSController> _logger;
         private readonly SMSService _smsService;
 
-        public SMSController(ILogger<SMSController> logger, SMSService userService)
+        public SMSController(ILogger<SMSController> logger, SMSService smsService)
         {
             _logger = logger;
-            _smsService = userService;
+            _smsService = smsService;
         }
 
         [Route("SendSMS")]
