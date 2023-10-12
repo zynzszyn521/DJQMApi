@@ -21,9 +21,9 @@ namespace DbHelper.Service
         {
             return _userRepository.SaveUser(model);
         }
-        public Task<ReturnResult> UpdatePayUser(UserModel model)
+        public Task<ReturnResult> UpdateVipUser(UserModel model)
         {
-            return _userRepository.UpdatePayUser(model);
+            return _userRepository.UpdateVipUser(model);
         }
         public Task<dynamic> GetUserById(string userCode)
         {

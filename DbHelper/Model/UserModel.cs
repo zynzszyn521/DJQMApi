@@ -15,7 +15,7 @@ namespace DbHelper.Model
         public string? phoneNumber { get; set; }
         public DateTime? createTime { get; set; }
         public DateTime? lastTime { get; set; }
-        public int? payFlag { get; set; }
+        public int? vipFlag { get; set; }
         public DateTime? expirationTime { get; set; }
     }
 }

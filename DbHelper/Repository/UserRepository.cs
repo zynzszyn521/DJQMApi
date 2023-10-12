@@ -39,14 +39,14 @@ namespace DbHelper.Repository
                 };
             }
         }
-        public async Task<ReturnResult> UpdatePayUser(UserModel model)
+        public async Task<ReturnResult> UpdateVipUser(UserModel model)
         {
             using (var connection = _dapperFactory.GetConnection())
             {
                 string strSql = string.Empty;
                 int iReturn = 0;
                 connection.Open();
-                strSql = " update djqm.User set payFlag=@payFlag,expirationTime=@expirationTime where userCode=@userCode ";
+                strSql = " update djqm.User set vipFlag=@vipFlag,expirationTime=@expirationTime where userCode=@userCode ";
                 iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 return new ReturnResult()
                 {
