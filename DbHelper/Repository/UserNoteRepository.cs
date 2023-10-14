@@ -27,7 +27,7 @@ namespace DbHelper.Repository
                 string strSql = string.Empty;
                 int iReturn = 0;
                 connection.Open();
-                strSql = " update djqm.UserNote set title=:title,updateTime=CURRENT_TIMESTAMP where userCode=@userCode and appCode=@appCode and noteDate=@noteDate and noteSex=@noteSex ";
+                strSql = " update djqm.UserNote set title=@title,updateTime=CURRENT_TIMESTAMP where userCode=@userCode and appCode=@appCode and noteDate=@noteDate and noteSex=@noteSex ";
                 iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 if (iReturn == 0)
                 {
