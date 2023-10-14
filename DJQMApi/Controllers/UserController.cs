@@ -38,7 +38,7 @@ namespace DJQMApi.Controllers
         }
         [Route("UpdateVipUser")]
         [HttpPost]
-        public async Task<IActionResult> UpdateVipUser(UserModel model)
+        public async Task<IActionResult> UpdateVipUser(UserVipHModel model)
         {
             IActionResult ihares;
             ReturnResult returnResult = new ReturnResult();

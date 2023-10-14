@@ -55,7 +55,24 @@ namespace DbHelper.Repository
                 };
             }
         }
-        public async Task<dynamic> GetUserById(string userCode)
+        public async Task<ReturnResult> SaveUserVipH(UserVipHModel model)
+        {
+            using (var connection = _dapperFactory.GetConnection())
+            {
+                model.recordId = Guid.NewGuid().ToString();
+                string strSql = string.Empty;
+                int iReturn = 0;
+                connection.Open();
+                strSql = " insert into djqm.UserVipH(recordId,userCode,vipTypeId,vipTypeName,vipTypePrice) values(@recordId,@userCode,@vipTypeId,@vipTypeName,@vipTypePrice) ";
+                iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
+                return new ReturnResult()
+                {
+                    successed = true,
+                    msg = ""
+                };
+            }
+        }
+        public async Task<IEnumerable<UserModel>> GetUserById(string userCode)
         {
             using (var connection = _dapperFactory.GetConnection())
             {

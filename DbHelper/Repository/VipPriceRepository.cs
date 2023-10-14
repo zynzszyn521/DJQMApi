@@ -29,7 +29,7 @@ namespace DbHelper.Repository
                 iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 if (iReturn == 0)
                 {
-                    strSql = " insert into djqm.VipPrice(typeId,typeName,typePrice) values(@typeId,@typeName,@typePrice) ";
+                    strSql = " insert into djqm.VipPrice(typeId,typeName,typePrice,monthLength) values(@typeId,@typeName,@typePrice,@monthLength) ";
                     iReturn = await connection.ExecuteAsync(strSql, model).ConfigureAwait(false);
                 }
                 if (iReturn > 0)

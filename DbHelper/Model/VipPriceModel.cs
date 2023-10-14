@@ -12,5 +12,6 @@ namespace DbHelper.Model
         public string? typeName { get; set; }
         public string? typePrice { get; set; }
         public DateTime? updateTime { get; set; }
+        public int? monthLenth { get; set; }
     }
 }

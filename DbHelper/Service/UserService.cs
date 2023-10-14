@@ -21,11 +21,25 @@ namespace DbHelper.Service
         {
             return _userRepository.SaveUser(model);
         }
-        public Task<ReturnResult> UpdateVipUser(UserModel model)
+        public async Task<ReturnResult> UpdateVipUser(UserVipHModel model)
         {
-            return _userRepository.UpdateVipUser(model);
+            await _userRepository.SaveUserVipH(model);
+            UserModel userModel = (await GetUserById(model.userCode).ConfigureAwait(false)).FirstOrDefault();
+            DateTime dBeginTime = DateTime.Now;
+            if (userModel.expirationTime != null)
+            {
+                //如果到期时间晚于现在时间，则累加
+                if (userModel.expirationTime > DateTime.Now)
+                {
+                    dBeginTime = (DateTime)userModel.expirationTime;
+                }
+            }
+            userModel.vipFlag = 1;
+            userModel.expirationTime = dBeginTime.AddMonths(model.monthLength);
+            return await _userRepository.UpdateVipUser(userModel);
+
         }
-        public Task<dynamic> GetUserById(string userCode)
+        public Task<IEnumerable<UserModel>> GetUserById(string userCode)
         {
             return _userRepository.GetUserById(userCode);
         }
