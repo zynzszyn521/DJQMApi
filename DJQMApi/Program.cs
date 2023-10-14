@@ -23,6 +23,8 @@ builder.Services.AddScoped<ArticleService>();
 builder.Services.AddScoped<ArticleRepository>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<OrderRepository>();
+builder.Services.AddScoped<VipPriceService>();
+builder.Services.AddScoped<VipPriceRepository>();
 
 builder.Services.AddControllers(options =>
 {
